@@ -1,0 +1,14 @@
+Metadata-Version: 1.2
+Name: unilora
+Version: 0.1.0
+Summary: PyTorch implementation of Uni-LoRA.
+Home-page: UNKNOWN
+Author: Yang Li, Shaobo Han, Shihao Ji
+Author-email: yli93@student.gsu.edu
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
