@@ -10,7 +10,7 @@ import numpy as np
 import os
 import sys
 
-# 获取绝对路径
+
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "NLU"))
 sys.path.append(BASE_DIR)
 import config_device
