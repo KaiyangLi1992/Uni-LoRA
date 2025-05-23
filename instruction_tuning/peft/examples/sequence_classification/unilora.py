@@ -173,7 +173,7 @@ from safetensors.torch import load_file
 
 state_dict = load_file("./saved_unilora_model/adapter_model.safetensors")
 
-print(state_dict.keys())  # 打印所有保存的权重名称
+print(state_dict.keys())  
 # account_id = 'Kaiyang92' # your Hugging Face Hub account ID
 # model.push_to_hub(f"{account_id}/roberta-large-peft-unilora")
 
