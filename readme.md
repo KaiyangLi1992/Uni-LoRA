@@ -93,5 +93,6 @@ The scripts are located in the "instruction_tuning/scripts" folder.
 
 For example,
 ```console
+cd math_instruction_tuning
 ./run_instruction_tuning_unilora.sh
 ```
