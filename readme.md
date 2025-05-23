@@ -1,17 +1,17 @@
 ##  Uni-LoRA: One Vector is All You Need
 
-This repo contains the source code for Uni-LoRA: One Vector is All You Need.
+This repo contains the source code of "Uni-LoRA: One Vector is All You Need".
 
-Uni-LoRA is implemented following the standard interface of the 🤗 Hugging Face State-of-the-art Parameter-Efficient Fine-Tuning (PEFT) library (see instruction_tuning/peft), making it easy to integrate into existing workflows. The implementation is fully compatible with PEFT, and we plan to submit it for potential inclusion in the official PEFT library in the near future.
+Uni-LoRA is implemented following the standard interface of the 🤗 Hugging Face Parameter-Efficient Fine-Tuning (PEFT) library (see instruction_tuning/peft), making it easy to integrate into existing workflows. Our implementation is fully compatible with PEFT, and we plan to submit it for potential inclusion in the official PEFT library in the future.
 
  
 <p align="center">
 <img src="./unilora.png" alt="Uni-LoRA Architecture" width="300"/>
 </p>
 
-**Uni-LoRA**  introduces a fixed, sparse, and isometric projection matrix P^(D × d), where D ≫ d and each row contains exactly one nonzero entry. By multiplying P with a compact trainable vector θ_d (length d), Uni-LoRA reconstructs the full LoRA parameter θ_D (length D), enabling efficient fine-tuning with minimal trainable parameters and no architectural modifications.
+**Uni-LoRA**  introduces a fixed, sparse, and isometric projection matrix P^(D × d), where d<<D and each row contains exactly one nonzero entry. By multiplying P with a compact trainable vector θ_d (length d), Uni-LoRA reconstructs the full LoRA parameter θ_D (length D), enabling efficient fine-tuning with minimal trainable parameters and no architectural modifications.
 
-Empirically, Uni-LoRA matches the performance of standard LoRA while updating only 0.52M parameters on GEMMA-7B — just 0.0061% of the base model size and 0.26% of the LoRA parameter count. 
+Empirically, Uni-LoRA matches the performance of standard LoRA while updating only 0.52M parameters on GEMMA-7B — only 0.0061% of the base model size and 0.26% of the LoRA parameter count. 
 
 ## Steps to reproduce the results
 

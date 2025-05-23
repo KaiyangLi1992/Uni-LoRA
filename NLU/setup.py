@@ -3,8 +3,8 @@ import setuptools
 setuptools.setup(
     name="unilora",
     version="0.1.0",
-    author="Yang Li, Shaobo Han, Shihao Ji",
-    author_email="yli93@student.gsu.edu",
+    author="***",
+    author_email="***",
     description="PyTorch implementation of Uni-LoRA.",
     packages=setuptools.find_packages(),
     classifiers=[
