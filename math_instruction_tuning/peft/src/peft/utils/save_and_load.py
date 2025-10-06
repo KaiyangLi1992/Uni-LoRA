@@ -373,7 +373,7 @@ def set_peft_model_state_dict(
             PeftType.UNILORA: "unilora_",
         }[config.peft_type]
         if config.peft_type == PeftType.UNILORA and config.save_only_topk_weights:
-            num_vectors, _ = model.unilora_vector_bank[adapter_name].shape
+            num_vectors  = 1
             state_dict_keys = list(state_dict.keys())
             for k in state_dict_keys:
                 # in save_only_topk_weights mode, only topk_indices and topk_weights are saved

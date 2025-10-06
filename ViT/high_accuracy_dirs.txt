@@ -1,0 +1,14 @@
+./food101-run-5e-3-5e-2-headlr0.05-baselr0.005
+./food101-run-2e-3-5e-2-headlr0.05-baselr0.002
+./food101-run-5e-3-5e-2-rank4-headlr5e-2-baselr5e-3-headlr0.05-baselr0.005
+./food101-run-2e-3-1e-2-rank4-headlr1e-2-baselr2e-3-headlr0.01-baselr0.002
+./food101-run-2e-3-2e-2-rank4-headlr2e-2-baselr2e-3-headlr0.02-baselr0.002
+./food101-run-2e-3-5e-2-rank4-headlr5e-2-baselr2e-3-headlr0.05-baselr0.002
+./food101-run-1e-3-2e-2-rank4-headlr2e-2-baselr1e-3-headlr0.02-baselr0.001
+./food101-run-1e-3-5e-2-rank4-headlr5e-2-baselr1e-3-headlr0.05-baselr0.001
+./food101-run-5e-3-5e-2-rank8-headlr5e-2-baselr5e-3-headlr0.05-baselr0.005
+./food101-run-2e-3-1e-2-rank8-headlr1e-2-baselr2e-3-headlr0.01-baselr0.002
+./food101-run-2e-3-2e-2-rank8-headlr2e-2-baselr2e-3-headlr0.02-baselr0.002
+./food101-run-2e-3-5e-2-rank8-headlr5e-2-baselr2e-3-headlr0.05-baselr0.002
+./food101-run-1e-3-2e-2-rank8-headlr2e-2-baselr1e-3-headlr0.02-baselr0.001
+./food101-run-1e-3-5e-2-rank8-headlr5e-2-baselr1e-3-headlr0.05-baselr0.001

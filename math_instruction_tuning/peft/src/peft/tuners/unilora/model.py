@@ -73,22 +73,73 @@ class UniLoRAModel(BaseTuner):
 
     def __init__(self, model, config, adapter_name, low_cpu_mem_usage: bool = False) -> None:
         super().__init__(model, config, adapter_name, low_cpu_mem_usage=low_cpu_mem_usage)
+        
+        LoRA_para_cnt = 0
+        for name, module in model.named_modules():
+             if isinstance(module, UniLoRALayer):
+               LoRA_para_cnt += module.unilora_logits_A[adapter_name].numel()
+               LoRA_para_cnt += module.unilora_logits_B[adapter_name].numel()
+
+
+        vector_length = config[adapter_name].vector_length
+        all_elements = self.generate_index(LoRA_para_cnt,vector_length)
+
+        pointer = 0  #  data 
+
+        for name, module in model.named_modules():
+            if isinstance(module, UniLoRALayer):
+                param_numel = module.unilora_logits_A[adapter_name].numel()
+                chunk = all_elements[pointer: pointer + param_numel]
+                module.unilora_logits_A[adapter_name] = chunk.view_as(module.unilora_logits_A[adapter_name]).clone()
+                pointer += param_numel
+
+                param_numel = module.unilora_logits_B[adapter_name].numel()
+                chunk = all_elements[pointer: pointer + param_numel]
+                module.unilora_logits_B[adapter_name] = chunk.view_as(module.unilora_logits_B[adapter_name]).clone()
+                pointer += param_numel
+
+        assert pointer == len(all_elements)
+        counts = torch.bincount(all_elements, minlength=vector_length) 
+        sqrt_counts = 1/torch.sqrt(counts.float())  # shape: (vector_length,)
+
         index_ls = []
         for name, module in model.named_modules():
              if isinstance(module, UniLoRALayer):
                index_ls.append(module.unilora_logits_A[adapter_name].long())
                index_ls.append(module.unilora_logits_B[adapter_name].long())
-        all_elements = torch.cat([t.view(-1) for t in index_ls])
-        counts = torch.bincount(all_elements, minlength=config[adapter_name].vector_length)  # shape: (vector_length,)
-        sqrt_counts = 1/torch.sqrt(counts.float())  # shape: (vector_length,)
+
         norm_factors = [sqrt_counts[t] for t in index_ls]
-        vb_modules = [m for m in self.modules() if isinstance(m, UniLoRALayer)]
-        for module, (a, b) in zip(vb_modules, zip(*[iter(norm_factors)] * 2)):
+
+        
+        # all_elements = torch.cat([t.view(-1) for t in index_ls])
+        # counts = torch.bincount(all_elements, minlength=config[adapter_name].vector_length)  # shape: (vector_length,)
+        # sqrt_counts = 1/torch.sqrt(counts.float())  # shape: (vector_length,)
+        # norm_factors = [sqrt_counts[t] for t in index_ls]
+        uni_modules = [m for m in self.modules() if isinstance(m, UniLoRALayer)]
+        for module, (a, b) in zip(uni_modules, zip(*[iter(norm_factors)] * 2)):
             module.update_norm(adapter_name,a, b)
               
     
     
+    def generate_index(self,LoRA_para_cnt,vector_length):
+        import numpy as np
+        total_length = LoRA_para_cnt
+        num_unique = vector_length
+        base_count = total_length // num_unique
 
+        remaining = total_length % num_unique
+
+        # ： base_count 
+        data = np.repeat(np.arange(num_unique), base_count)
+
+        # 
+        if remaining > 0:
+            extras = np.random.choice(num_unique, size=remaining, replace=False)
+            data = np.concatenate([data, extras])
+
+        # 
+        np.random.shuffle(data)
+        return torch.tensor(data)
 
     def _init_unilora_vector_bank(self, config: UniLoRAConfig, adapter_name: str) -> None:
         unilora_vector_bank = torch.zeros(config.vector_length)

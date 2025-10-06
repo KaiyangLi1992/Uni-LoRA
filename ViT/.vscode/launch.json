@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Fine-tune ViT with args",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/fine_tuning_ViT_large.py",
+      "console": "integratedTerminal",
+      "args": [
+        "--head_lr", "0.005",
+        "--base_lr", "0.005",
+        "--output_prefix", "test-run"
+      ]
+    }
+  ]
+}
