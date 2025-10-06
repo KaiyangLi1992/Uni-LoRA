@@ -96,3 +96,25 @@ For example,
 cd math_instruction_tuning
 ./run_instruction_tuning_unilora.sh
 ```
+
+
+## ViT Tuning
+#### Create and activate conda env
+```console
+cd math_instruction_tuning
+conda create -n ViT_tuning python==3.8.13
+conda activate ViT_tuning
+```
+
+#### Install the pre-requisites
+```console
+pip install -r requirements.txt
+cd peft
+pip install -e .
+```
+
+#### Start the experiments
+```console
+./run_vit_base.sh
+./run_vit_large.sh
+```
