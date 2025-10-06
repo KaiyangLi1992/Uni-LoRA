@@ -118,3 +118,10 @@ pip install -e .
 ./run_vit_base.sh
 ./run_vit_large.sh
 ```
+
+
+
+## Acknowledgment
+Our Fastfood projection implementation used in the ablation study is based on the  
+[implementation from rojagtap/intrinsic-dimension-lm-fine-tuning](https://github.com/rojagtap/intrinsic-dimension-lm-fine-tuning).  
+We sincerely thank the authors for making their code publicly available.
