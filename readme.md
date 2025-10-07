@@ -132,6 +132,4 @@ If you found this code useful, please cite our paper.
 ```  
 
 ## Acknowledgment
-Our Fastfood projection implementation used in the ablation study is based on the  
-[implementation from rojagtap/intrinsic-dimension-lm-fine-tuning](https://github.com/rojagtap/intrinsic-dimension-lm-fine-tuning).  
-We sincerely thank the authors for making their code publicly available.
+Our Fastfood projection implementation used in the ablation study is based on the implementation from [rojagtap/intrinsic-dimension-lm-fine-tuning](https://github.com/rojagtap/intrinsic-dimension-lm-fine-tuning). We sincerely thank the authors for making their code publicly available.
