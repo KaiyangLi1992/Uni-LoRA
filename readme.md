@@ -1,6 +1,6 @@
-##  Uni-LoRA: One Vector is All You Need
+##  [NeurIPS 2025] Uni-LoRA: One Vector is All You Need
 
-This repo contains the source code of "Uni-LoRA: One Vector is All You Need".
+This repo contains the source code of [Uni-LoRA: One Vector is All You Need](https://arxiv.org/abs/2506.00799).
 
 Uni-LoRA is implemented following the standard interface of the 🤗 Hugging Face Parameter-Efficient Fine-Tuning (PEFT) library (see instruction_tuning/peft), making it easy to integrate into existing workflows. Our implementation is fully compatible with PEFT, and we plan to submit it for potential inclusion in the official PEFT library in the future.
 
@@ -9,7 +9,7 @@ Uni-LoRA is implemented following the standard interface of the 🤗 Hugging Fac
 <img src="./unilora.png" alt="Uni-LoRA Architecture" width="300"/>
 </p>
 
-**Uni-LoRA**  introduces a fixed, sparse, and isometric projection matrix P^(D × d), where d<<D and each row contains exactly one nonzero entry. By multiplying P with a compact trainable vector θ_d (length d), Uni-LoRA reconstructs the full LoRA parameter θ_D (length D), enabling efficient fine-tuning with minimal trainable parameters and no architectural modifications.
+**Uni-LoRA**  introduces a fixed, sparse, and isometric projection matrix $\mathbf{P}^{(D × d)}$, where $d<<D$ and each row contains exactly one nonzero entry. By multiplying $\mathbf{P}$ with a compact trainable vector $\theta_d$ (length $d$), Uni-LoRA reconstructs the full LoRA parameter $\theta_D$ (length $D$), enabling efficient fine-tuning with minimal trainable parameters and no architectural modifications.
 
 Empirically, Uni-LoRA matches the performance of standard LoRA while updating only 0.52M parameters on GEMMA-7B — only 0.0061% of the base model size and 0.26% of the LoRA parameter count. 
 
@@ -119,7 +119,17 @@ pip install -e .
 ./run_vit_large.sh
 ```
 
+## Citation
+If you found this code useful, please cite our paper.
 
+```  
+@inproceedings{li2024vblora,
+      title={Uni-LoRA: One Vector is All You Need}, 
+      author={Kaiyang Li and Shaobo Han and Qing Su and Wei Li and Zhipeng Cai and Shihao Ji},
+      booktitle={The 39th Conference on Neural Information Processing Systems (NeurIPS)},
+      year={2025}
+}
+```  
 
 ## Acknowledgment
 Our Fastfood projection implementation used in the ablation study is based on the  
