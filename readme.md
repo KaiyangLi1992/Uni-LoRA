@@ -123,7 +123,7 @@ pip install -e .
 If you found this code useful, please cite our paper.
 
 ```  
-@inproceedings{li2024vblora,
+@inproceedings{li2025unilora,
       title={Uni-LoRA: One Vector is All You Need}, 
       author={Kaiyang Li and Shaobo Han and Qing Su and Wei Li and Zhipeng Cai and Shihao Ji},
       booktitle={The 39th Conference on Neural Information Processing Systems (NeurIPS)},
