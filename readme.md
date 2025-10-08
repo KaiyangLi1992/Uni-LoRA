@@ -6,7 +6,7 @@ Uni-LoRA is implemented following the standard interface of the 🤗 Hugging Fac
 
  
 <p align="center">
-<img src="./unilora.png" alt="Uni-LoRA Architecture" width="300"/>
+<img src="./uni-pdf.png" alt="Uni-LoRA Architecture" width="300"/>
 </p>
 
 ## Abstract
