@@ -1,4 +1,4 @@
-##  [NeurIPS 2025] Uni-LoRA: One Vector is All You Need
+##  [NeurIPS Spotlight 2025] Uni-LoRA: One Vector is All You Need
 
 This repo contains the source code of [Uni-LoRA: One Vector is All You Need](https://arxiv.org/abs/2506.00799).
 
@@ -6,7 +6,7 @@ Uni-LoRA is implemented following the standard interface of the 🤗 Hugging Fac
 
  
 <p align="center">
-<img src="./uni-lora.jpg" alt="Uni-LoRA Architecture" width="300"/>
+<img src="./uni-lora.jpg" alt="Uni-LoRA Architecture" width="850"/>
 </p>
 
 ## Abstract
