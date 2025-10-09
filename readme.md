@@ -1,4 +1,4 @@
-##  [NeurIPS Spotlight 2025] Uni-LoRA: One Vector is All You Need
+##  [NeurIPS 2025 Spotlight] Uni-LoRA: One Vector is All You Need
 
 This repo contains the source code of [Uni-LoRA: One Vector is All You Need](https://arxiv.org/abs/2506.00799).
 
