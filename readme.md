@@ -39,6 +39,13 @@ cd NLU/peft/examples/sequence_classification/
 cd NLU/peft/examples/sequence_classification/
 python summarize_lr.py
 ```
+**Note:** In the original Uni-LoRA paper, the hyperparameters in Table 8 correspond to the `NLU_legacy` setting. After upgrading the codebase to match HuggingFace PEFT, the performance remains consistent, but the **Learning Rate (Head)** should be updated to the values below.
+
+| Model          | cola | sst2 | mrpc | qnli | rte  | stsb |
+|----------------|------|------|------|------|------|------|
+| roberta-base   | 2e-2 | 5e-4 | 1e-3 | 1e-3 | 1e-2 | 2e-4 |
+| roberta-large  | 5e-3 | 1e-3 | 2e-4 | 5e-4 | 5e-3 | 2e-4 |
+
 
 
 ## Instruction Tuning
@@ -119,7 +126,7 @@ pip install -e .
 ```
 
 
-## NLU
+## NLU_legacy
 - Modified code for running experiments for Natural Language Understanding experiments.
 - Adapted from [LoRA source code](https://github.com/microsoft/LoRA).
 #### Create and activate conda env
