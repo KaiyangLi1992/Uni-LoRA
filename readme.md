@@ -2,7 +2,7 @@
 
 This repo contains the source code of [Uni-LoRA: One Vector is All You Need](https://arxiv.org/abs/2506.00799).
 
-Uni-LoRA is implemented following the standard interface of the 🤗 Hugging Face Parameter-Efficient Fine-Tuning (PEFT) library (see instruction_tuning/peft), making it easy to integrate into existing workflows. Our implementation is fully compatible with PEFT, and we plan to submit it for potential inclusion in the official PEFT library in the future.
+Uni-LoRA has been merged into the official 🤗 Hugging Face PEFT library and is now available in the [PEFT Uni-LoRA API reference](https://huggingface.co/docs/peft/main/en/package_reference/unilora). It follows the standard PEFT interface, allowing users to directly use `UniLoraConfig` and `get_peft_model` for seamless integration into existing parameter-efficient fine-tuning workflows.
 
  
 <p align="center">
